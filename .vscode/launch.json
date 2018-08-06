@@ -1,0 +1,126 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": "Arrays .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_arrays",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Arrays/bin/Debug/netcoreapp2.1/Arrays.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Arrays",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "BasicTrees .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_basic_trees",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/BasicTrees/bin/Debug/netcoreapp2.1/BasicTrees.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BasicTrees",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "BinaryQuiz .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_binary_quiz",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/BinaryQuiz/bin/Debug/netcoreapp2.1/BinaryQuiz.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BinaryQuiz",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "BinaryTrees .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_binary_trees",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/BinaryTrees/bin/Debug/netcoreapp2.1/BinaryTrees.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BinaryTrees",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "DictsSets .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_dicts_sets",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/DictsSets/bin/Debug/netcoreapp2.1/DictsSets.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DictsSets",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Lists .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_lists",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Lists/bin/Debug/netcoreapp2.1/Lists.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Lists",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Queues .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_queues",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Queues/bin/Debug/netcoreapp2.1/Queues.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Queues",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Stacks .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_stacks",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Stacks/bin/Debug/netcoreapp2.1/Stacks.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Stacks",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ,]
+}

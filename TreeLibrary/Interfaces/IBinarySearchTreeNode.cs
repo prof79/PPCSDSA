@@ -9,7 +9,7 @@
 //      with two children ("left" and "right").
 //      A search tree demands a specific order and structure of child nodes.
 // </description>
-// <version>v0.9.5 2018-08-05T18:24:00+02</version>
+// <version>v0.9.6 2018-08-07T23:45:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -34,5 +34,37 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// lesser/greater rules of a binary search tree.
         /// </summary>
         bool IsValidSearchTree { get; }
+
+        /// <summary>
+        /// Find some data in a binary search tree using binary search.
+        /// </summary>
+        /// <param name="data">
+        /// The data to search for.
+        /// </param>
+        /// <param name="lastNodeVisited">
+        /// Will be filled with the last node visited. If the return value
+        /// is "true" than this is the matching node or result.
+        /// In case of "false" this is the last node investigated before
+        /// stopping the search. Having this reference is essential
+        /// for node insertion and removal scenarios.
+        /// </param>
+        /// <param name="safetyCheck">
+        /// Check whether the (sub-)tree is a valid binary search tree
+        /// at all before searching. Throws <see cref="InvalidOperationException"/>
+        /// if invalid. This is a costly operation of O(n)
+        /// for valid trees but spares you an extra check of
+        /// "IsValidSearchTree" if you had done so anyway.
+        /// </param>
+        /// <returns>
+        /// True if the data was found otherwise false.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the (sub-)tree is not a valid binary search tree by
+        /// definition AND "safetyCheck" was set to "true".
+        /// </exception>
+        bool Find(
+            T data,
+            out IBinarySearchTreeNode<T> lastNodeVisited,
+            bool safetyCheck = false);
     }
 }

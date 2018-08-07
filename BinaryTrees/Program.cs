@@ -7,7 +7,7 @@
 // <description>
 //      The main program class for the "Binary Trees" console demos.
 // </description>
-// <version>v0.9.2 2018-08-05T20:22:00+02</version>
+// <version>v0.9.4 2018-08-07T23:58:00+02</version>
 //
 // This code is inspired by examples and exercises from the book
 // "C# Data Structures and Algorithms" (C) 2018 by Marcin Jamro,
@@ -109,6 +109,9 @@ namespace DataStructuresAndAlgos.BinaryTrees
         /// </summary>
         private static void SampleBinarySearchTreeDemos()
         {
+            IBinarySearchTreeNode<int> resultNode = null;
+            var result = false;
+
             WriteLine("SAMPLE BINARY SEARCH TREE DEMOS");
             WriteLine();
 
@@ -127,6 +130,15 @@ namespace DataStructuresAndAlgos.BinaryTrees
 
             WriteLine($"Is valid BST? {validTree1.Root.IsValidSearchTree}");
 
+            var v1data1 = 47;
+            var v1data2 = 43;
+
+            result = validTree1.Root.Find(v1data1, out resultNode);
+            WriteLine($"Search for {v1data1}: Found = {result}, Node = '{resultNode}'.");
+
+            result = validTree1.Root.Find(v1data2, out resultNode);
+            WriteLine($"Search for {v1data2}: Found = {result}, Node = '{resultNode}'.");
+
             WriteLine();
             WriteLine();
 
@@ -135,6 +147,15 @@ namespace DataStructuresAndAlgos.BinaryTrees
             WriteLine(validTree2);
 
             WriteLine($"Is valid BST? {validTree2.Root.IsValidSearchTree}");
+
+            var v2data1 = 60;
+            var v2data2 = 73;
+
+            result = validTree2.Root.Find(v2data1, out resultNode);
+            WriteLine($"Search for {v2data1}: Found = {result}, Node = '{resultNode}'.");
+
+            result = validTree2.Root.Find(v2data2, out resultNode);
+            WriteLine($"Search for {v2data2}: Found = {result}, Node = '{resultNode}'.");
 
             WriteLine();
         }

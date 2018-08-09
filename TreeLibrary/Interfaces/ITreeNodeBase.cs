@@ -8,7 +8,7 @@
 //      A generic base interface for a general node in a tree structure
 //      independent of the tree type.
 // </description>
-// <version>v0.9.5 2018-08-04T23:13:00+02</version>
+// <version>v0.9.7 2018-08-08T19:57:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -21,28 +21,28 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// This interface encompasses the commonalities of binary and
     /// non-binary tree nodes alike.
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the parent and child tree nodes which must be descendant
-    /// from <see cref="ITreeNodeBase{TN, T}"/>.
+    /// from <see cref="ITreeNodeBase{TNode, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of the data contained in the tree nodes.
     /// </typeparam>
-    public interface ITreeNodeBase<TN, T>
+    public interface ITreeNodeBase<TNode, T>
         : IDataNode<T>
-        where TN : ITreeNodeBase<TN, T>
+        where TNode : ITreeNodeBase<TNode, T>
     {
         #region Properties
 
         /// <summary>
         /// Gets or sets the parent node.
         /// </summary>
-        TN Parent { get; set; }
+        TNode Parent { get; set; }
 
         /// <summary>
         /// Gets a list of the child nodes.
         /// </summary>
-        IEnumerable<TN> Children { get; }
+        IEnumerable<TNode> Children { get; }
 
         /// <summary>
         /// Gets the depth of a node.

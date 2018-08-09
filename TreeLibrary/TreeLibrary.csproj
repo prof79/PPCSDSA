@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>at.markusegger.Lab.Library.DataStructures</RootNamespace>
-    <Version>0.9.6</Version>
+    <Version>0.9.7</Version>
     <Authors>Markus M. Egger</Authors>
     <AssemblyName>at.markusegger.Lab.TreeLibrary</AssemblyName>
   </PropertyGroup>

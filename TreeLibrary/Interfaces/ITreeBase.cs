@@ -7,7 +7,7 @@
 // <description>
 //      A generic base interface for general tree structures.
 // </description>
-// <version>v0.9.5 2018-08-05T21:02:00+02</version>
+// <version>v0.9.7 2018-08-08T19:56:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -15,20 +15,20 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// <summary>
     /// A generic base interface for general tree structures.
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the tree root node which must be descendant
     /// from <see cref="ITreeNodeBase{TN, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of the data in the tree nodes.
     /// </typeparam>
-    public interface ITreeBase<TN, T>
-        where TN : ITreeNodeBase<TN, T>
+    public interface ITreeBase<TNode, T>
+        where TNode : ITreeNodeBase<TNode, T>
     {
         /// <summary>
         /// Gets or sets the root node of the tree.
         /// </summary>
-        TN Root { get; set; }
+        TNode Root { get; set; }
 
         /// <summary>
         /// Gets whether the tree is empty (no root node)

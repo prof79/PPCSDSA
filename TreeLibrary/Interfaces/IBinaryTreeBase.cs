@@ -7,7 +7,7 @@
 // <description>
 //      A generic base interface for binary tree structures.
 // </description>
-// <version>v0.9.5 2018-08-05T21:10:00+02</version>
+// <version>v0.9.7 2018-08-09T19:54:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -15,16 +15,16 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// <summary>
     /// A generic base interface for binary tree structures.
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the tree root node which must be descendant
-    /// from <see cref="IBinaryTreeNodeBase{TN, T}"/>.
+    /// from <see cref="IBinaryTreeNodeBase{TNode, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of the data in the tree nodes.
     /// </typeparam>
-    public interface IBinaryTreeBase<TN, T>
-        : ITreeBase<TN, T>
-        where TN : IBinaryTreeNodeBase<TN, T>
+    public interface IBinaryTreeBase<TNode, T>
+        : ITreeBase<TNode, T>
+        where TNode : IBinaryTreeNodeBase<TNode, T>
     {
     }
 }

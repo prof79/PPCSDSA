@@ -8,7 +8,7 @@
 //      An abstract base class for representation of a binary tree node
 //      with two children ("left" and "right").
 // </description>
-// <version>v0.9.5 2018-08-05T19:00:00+02</version>
+// <version>v0.9.7 2018-08-08T20:00:00+02</version>
 //
 // Btw I love Daniel Earwicker! That was mindboggling ...
 // https://stackoverflow.com/questions/693463/operator-as-and-generic-classes#693469
@@ -24,28 +24,28 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// An abstract base class for representation of a binary tree node
     /// with two children ("left" and "right").
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the parent and child tree nodes which must be descendant
-    /// from <see cref="IBinaryTreeNodeBase{TN, T}"/>.
+    /// from <see cref="IBinaryTreeNodeBase{TNode, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of data contained in the node.
     /// </typeparam>
-    public abstract class BinaryTreeNodeBase<TN, T>
-        : TreeNodeBase<TN, T>
-        , IBinaryTreeNodeBase<TN, T>
-        where TN : class, IBinaryTreeNodeBase<TN, T>
+    public abstract class BinaryTreeNodeBase<TNode, T>
+        : TreeNodeBase<TNode, T>
+        , IBinaryTreeNodeBase<TNode, T>
+        where TNode : class, IBinaryTreeNodeBase<TNode, T>
     {
         #region Fields
 
-        protected TN _left;
-        protected TN _right;
+        protected TNode _left;
+        protected TNode _right;
 
         #endregion
 
-        #region Interface ITreeNodeBase<TN, T>
+        #region Interface ITreeNodeBase<TNode, T>
 
-        public override IEnumerable<TN> Children
+        public override IEnumerable<TNode> Children
         {
             get
             {
@@ -63,12 +63,12 @@ namespace at.markusegger.Lab.Library.DataStructures
 
         #endregion
 
-        #region Interface IBinaryTreeNodeBase<TN, T> Properties
+        #region Interface IBinaryTreeNodeBase<TNode, T> Properties
 
         /// <summary>
         /// Gets or sets the left child of the binary node.
         /// </summary>
-        public TN Left
+        public TNode Left
         {
             get => _left;
 
@@ -76,7 +76,7 @@ namespace at.markusegger.Lab.Library.DataStructures
             {
                 if (!value.Equals(_left))
                 {
-                    value.Parent = this as TN;
+                    value.Parent = this as TNode;
 
                     _left = value;
                 }
@@ -86,7 +86,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// <summary>
         /// Gets or sets the right child of the binary node.
         /// </summary>
-        public TN Right
+        public TNode Right
         {
             get => _right;
 
@@ -94,7 +94,7 @@ namespace at.markusegger.Lab.Library.DataStructures
             {
                 if (!value.Equals(_right))
                 {
-                    value.Parent = this as TN;
+                    value.Parent = this as TNode;
 
                     _right = value;
                 }
@@ -103,7 +103,7 @@ namespace at.markusegger.Lab.Library.DataStructures
 
         #endregion
 
-        #region Interface IBinaryTreeNodeBase<TN, T> Methods
+        #region Interface IBinaryTreeNodeBase<TNode, T> Methods
 
         /// <summary>
         /// Perform a pre-order traversal of a binary tree node.
@@ -119,8 +119,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// Pre-order refers to when the current node will be processed -
         /// before all child nodes.
         /// </remarks>
-        public void TraversePreOrder(IList<TN> nodesVisited)
-            => TraversePreOrder(this as TN, nodesVisited);
+        public void TraversePreOrder(IList<TNode> nodesVisited)
+            => TraversePreOrder(this as TNode, nodesVisited);
 
         /// <summary>
         /// Perform a in-order traversal of a binary tree node.
@@ -135,8 +135,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// In-order refers to when the current node will be processed -
         /// in-between the left and right child nodes.
         /// </remarks>
-        public void TraverseInOrder(IList<TN> nodesVisited)
-            => TraverseInOrder(this as TN, nodesVisited);
+        public void TraverseInOrder(IList<TNode> nodesVisited)
+            => TraverseInOrder(this as TNode, nodesVisited);
 
         /// <summary>
         /// Perform a post-order traversal of a binary tree node.
@@ -151,8 +151,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// Post-order refers to when the current node will be processed -
         /// after all child nodes.
         /// </remarks>
-        public void TraversePostOrder(IList<TN> nodesVisited)
-            => TraversePostOrder(this as TN, nodesVisited);
+        public void TraversePostOrder(IList<TNode> nodesVisited)
+            => TraversePostOrder(this as TNode, nodesVisited);
 
         /// <summary>
         /// Perform a level-order traversal of a binary tree node.
@@ -168,8 +168,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// This yields a path like serpentines from top to bottom and
         /// left to right.
         /// </remarks>
-        public void TraverseLevelOrder(IList<TN> nodesVisited)
-            => TraverseLevelOrder(this as TN, nodesVisited);
+        public void TraverseLevelOrder(IList<TNode> nodesVisited)
+            => TraverseLevelOrder(this as TNode, nodesVisited);
 
         /// <summary>
         /// Traverse this binary tree node and children recursively
@@ -181,26 +181,26 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// <returns>
         /// A list filled with the tree nodes in visitation order.
         /// </returns>
-        public IList<TN> Traverse(TreeTraversalMode traversalMode)
+        public IList<TNode> Traverse(TreeTraversalMode traversalMode)
         {
-            var nodes = new List<TN>();
+            var nodes = new List<TNode>();
 
             switch (traversalMode)
             {
                 case TreeTraversalMode.PreOrder:
-                    TraversePreOrder(this as TN, nodes);
+                    TraversePreOrder(this as TNode, nodes);
                     break;
 
                 case TreeTraversalMode.InOrder:
-                    TraverseInOrder(this as TN, nodes);
+                    TraverseInOrder(this as TNode, nodes);
                     break;
 
                 case TreeTraversalMode.PostOrder:
-                    TraversePostOrder(this as TN, nodes);
+                    TraversePostOrder(this as TNode, nodes);
                     break;
 
                 case TreeTraversalMode.LevelOrder:
-                    TraverseLevelOrder(this as TN, nodes);
+                    TraverseLevelOrder(this as TNode, nodes);
                     break;
 
                 default:
@@ -233,8 +233,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// before all child nodes.
         /// </remarks>
         public static void TraversePreOrder(
-            TN startNode,
-            IList<TN> nodesVisited)
+            TNode startNode,
+            IList<TNode> nodesVisited)
         {
             CheckTraversalArguments(startNode, nodesVisited);
 
@@ -265,8 +265,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// in-between the left and right child nodes.
         /// </remarks>
         public static void TraverseInOrder(
-            TN startNode,
-            IList<TN> nodesVisited)
+            TNode startNode,
+            IList<TNode> nodesVisited)
         {
             CheckTraversalArguments(startNode, nodesVisited);
 
@@ -297,8 +297,8 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// after all child nodes.
         /// </remarks>
         public static void TraversePostOrder(
-            TN startNode,
-            IList<TN> nodesVisited)
+            TNode startNode,
+            IList<TNode> nodesVisited)
         {
             CheckTraversalArguments(startNode, nodesVisited);
 
@@ -330,14 +330,14 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// left to right.
         /// </remarks>
         public static void TraverseLevelOrder(
-            TN startNode,
-            IList<TN> nodesVisited)
+            TNode startNode,
+            IList<TNode> nodesVisited)
         {
             CheckTraversalArguments(startNode, nodesVisited);
 
             if (startNode != null)
             {
-                var levelQueue = new Queue<TN>();
+                var levelQueue = new Queue<TNode>();
 
                 levelQueue.Enqueue(startNode);
 
@@ -360,7 +360,7 @@ namespace at.markusegger.Lab.Library.DataStructures
 
         #region Static Helper Methods
 
-        private static bool CheckTraversalArguments(TN startNode, IList<TN> nodesVisited)
+        private static bool CheckTraversalArguments(TNode startNode, IList<TNode> nodesVisited)
         {
             if (nodesVisited == null)
             {

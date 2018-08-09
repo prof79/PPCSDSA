@@ -8,7 +8,7 @@
 //      An abstract and generic class for nodes in a tree structure
 //      to inherit own tree node implementations from.
 // </description>
-// <version>v0.9.5 2018-08-05T20:48:00+02</version>
+// <version>v0.9.7 2018-08-08T20:01:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -24,30 +24,30 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// This class encompasses the commonalities found in both
     /// binary as well as non-binary tree nodes.
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the parent and child tree nodes which must be descendant
-    /// from <see cref="ITreeNodeBase{TN, T}"/>.
+    /// from <see cref="ITreeNodeBase{TNode, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of the data contained in the nodes.
     /// </typeparam>
-    public abstract class TreeNodeBase<TN, T>
-        : ITreeNodeBase<TN, T>
-        where TN : ITreeNodeBase<TN, T>
+    public abstract class TreeNodeBase<TNode, T>
+        : ITreeNodeBase<TNode, T>
+        where TNode : ITreeNodeBase<TNode, T>
     {
         #region Fields
 
-        private TN _parent;
+        private TNode _parent;
         private T _data;
 
         #endregion
 
-        #region Interface ITreeNodeBase<TN, T>
+        #region Interface ITreeNodeBase<TNode, T>
 
         /// <summary>
         /// Gets or sets the parent node.
         /// </summary>
-        public TN Parent
+        public TNode Parent
         {
             get => _parent;
 
@@ -63,7 +63,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// <summary>
         /// Gets a list of the child nodes.
         /// </summary>
-        public abstract IEnumerable<TN> Children { get; }
+        public abstract IEnumerable<TNode> Children { get; }
 
         /// <summary>
         /// Gets or sets the arbitrary data.
@@ -99,7 +99,7 @@ namespace at.markusegger.Lab.Library.DataStructures
                 {
                     ++depth;
 
-                    current = current.Parent as TreeNodeBase<TN, T>;
+                    current = current.Parent as TreeNodeBase<TNode, T>;
                 }
 
                 return depth;
@@ -228,7 +228,7 @@ namespace at.markusegger.Lab.Library.DataStructures
                     }
                 }
             }
-            else if (this is TN)
+            else if (this is TNode)
             {
                 stringBuilder
                     .Append("N");

@@ -8,7 +8,7 @@
 //      A generic base interface for a basic tree node in a binary tree
 //      with two children ("left" and "right").
 // </description>
-// <version>v0.9.5 2018-08-05T18:55:00+02</version>
+// <version>v0.9.7 2018-08-08T19:55:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -19,28 +19,28 @@ namespace at.markusegger.Lab.Library.DataStructures
     /// A generic base interface for a basic tree node in a binary tree
     /// with two children ("left" and "right").
     /// </summary>
-    /// <typeparam name="TN">
+    /// <typeparam name="TNode">
     /// The type of the parent and child tree nodes which must be descendant
-    /// from <see cref="IBinaryTreeNodeBase{TN, T}"/>.
+    /// from <see cref="IBinaryTreeNodeBase{TNode, T}"/>.
     /// </typeparam>
     /// <typeparam name="T">
     /// The type of the data contained in the tree nodes.
     /// </typeparam>
-    public interface IBinaryTreeNodeBase<TN, T>
-        : ITreeNodeBase<TN, T>
-        where TN : IBinaryTreeNodeBase<TN, T>
+    public interface IBinaryTreeNodeBase<TNode, T>
+        : ITreeNodeBase<TNode, T>
+        where TNode : IBinaryTreeNodeBase<TNode, T>
     {
         #region Properties
 
         /// <summary>
         /// Gets or sets the left child of the binary node.
         /// </summary>
-        TN Left { get; set; }
+        TNode Left { get; set; }
 
         /// <summary>
         /// Gets or sets the right child of the binary node.
         /// </summary>
-        TN Right { get; set; }
+        TNode Right { get; set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// Pre-order refers to when the current node will be processed -
         /// before all child nodes.
         /// </remarks>
-        void TraversePreOrder(IList<TN> nodesVisited);
+        void TraversePreOrder(IList<TNode> nodesVisited);
 
         /// <summary>
         /// Perform a in-order traversal of a binary tree node.
@@ -75,7 +75,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// In-order refers to when the current node will be processed -
         /// in-between the left and right child nodes.
         /// </remarks>
-        void TraverseInOrder(IList<TN> nodesVisited);
+        void TraverseInOrder(IList<TNode> nodesVisited);
 
         /// <summary>
         /// Perform a post-order traversal of a binary tree node.
@@ -90,7 +90,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// Post-order refers to when the current node will be processed -
         /// after all child nodes.
         /// </remarks>
-        void TraversePostOrder(IList<TN> nodesVisited);
+        void TraversePostOrder(IList<TNode> nodesVisited);
 
         /// <summary>
         /// Perform a level-order traversal of a binary tree node.
@@ -106,7 +106,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// This yields a path like serpentines from top to bottom and
         /// left to right.
         /// </remarks>
-        void TraverseLevelOrder(IList<TN> nodesVisited);
+        void TraverseLevelOrder(IList<TNode> nodesVisited);
 
         /// <summary>
         /// Traverse this binary tree node and children recursively
@@ -118,7 +118,7 @@ namespace at.markusegger.Lab.Library.DataStructures
         /// <returns>
         /// A list filled with the tree nodes in visitation order.
         /// </returns>
-        IList<TN> Traverse(TreeTraversalMode traversalMode);
+        IList<TNode> Traverse(TreeTraversalMode traversalMode);
 
         #endregion
     }

@@ -8,7 +8,7 @@
 //      A generic tree node class for nodes in a non-binary tree
 //      with multiple child nodes.
 // </description>
-// <version>v0.9.5 2018-08-05T01:34:00+02</version>
+// <version>v0.9.7 2018-08-08T20:02:00+02</version>
 //----------------------------------------------------------------------------
 
 namespace at.markusegger.Lab.Library.DataStructures
@@ -42,7 +42,7 @@ namespace at.markusegger.Lab.Library.DataStructures
 
         #endregion
 
-        #region Interface ITreeNodeBase<TN, T>
+        #region Interface ITreeNodeBase<TNode, T>
 
         public override IEnumerable<ITreeNode<T>> Children
             => _children?.AsEnumerable();
